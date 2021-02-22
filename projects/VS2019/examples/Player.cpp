@@ -34,8 +34,6 @@ void Player::Draw(std::vector<ModelCube*>& columns)
 	bool hits = false;
 	for (ModelCube* column : columns)
 	{
-		DrawLine3D(m_Position, column->m_Position, RED);
-		
 		if (column->Hits(rayFromCameraToPlayer))
 		{
 			hits = true;
