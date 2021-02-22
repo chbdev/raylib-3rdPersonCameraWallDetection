@@ -29,24 +29,7 @@ void Player::Draw(std::vector<ModelCube*>& columns)
 	Vector3 start = m_Camera->position;
 	Vector3 end = m_Position;
 	Ray rayFromCameraToPlayer{ start, Vector3Subtract(end, start) };
-
-	Vector3 startToEnd = Vector3Subtract(end, start);
-	Vector3 dire = Vector3Normalize(startToEnd);
-	float l = Vector3Length(startToEnd);
-	float dl = l / 4.0f;
 	
-	for (int i = 1; i < 3; i++)
-	{
-		Vector3 pos = Vector3Add(start, Vector3Scale(dire, dl * i));
-		float radius = 0.15f * i;
-		DrawSphereWires(pos, radius, 10,10, i == 1 ? GREEN : RED);
-	}
-
-	DrawLine3D(Vector3Add(m_Camera->position, Vector3{ 0.01f,0.0f,0.0f }), m_Position, BLUE);
-	std::cout << m_Camera->position.x << "," << m_Camera->position.y << "," << m_Camera->position.z << "," << std::endl;
-
-	DrawSphere(start, 0.5f, BLUE);
-
 	RayHitInfo info;
 	bool hits = false;
 	for (ModelCube* column : columns)
