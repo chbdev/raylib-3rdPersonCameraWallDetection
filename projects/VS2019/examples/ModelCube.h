@@ -6,7 +6,7 @@ class ModelCube
 public: 
 	ModelCube(Vector3 position, float width, float height, float length, Color color);
 	void Draw();
-	bool Hits(Ray ray);
+	bool HitsAtLenght(Ray ray, float lenght, RayHitInfo& outInfo);
 
 	Vector3 m_Position;
 private:
