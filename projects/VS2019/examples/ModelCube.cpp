@@ -9,13 +9,15 @@ ModelCube::ModelCube(Vector3 position, float width, float height, float length, 
 	m_OriginalColor = m_Color;
 	m_Model = LoadModelFromMesh(GenMeshCube(width, height, length));
 	m_Model.transform = MatrixTranslate(m_Position.x, m_Position.y, m_Position.z);
+	m_Width = width;
 	m_Height = height;
+	m_Length = length;
 }
 
 void ModelCube::Draw()
 {
 	//DrawModel(m_Model, Vector3{ 0.0f,0.0f,0.0f }, 1.0f, m_Color);
-	DrawCubeWires(m_Position, 2.0f, m_Height, 2.0f, BLACK);
+	DrawCubeWires(m_Position, m_Width, m_Height, m_Length, BLACK);
 }
 
 bool ModelCube::HitsAtLenght(Ray ray, float lenght, RayHitInfo& outInfo)

@@ -13,6 +13,8 @@ private:
 	Model m_Model;
 	Color m_Color;
 	Color m_OriginalColor;
+	float m_Width;
 	float m_Height;
+	float m_Length;
 };
 

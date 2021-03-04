@@ -2875,9 +2875,9 @@ RayHitInfo GetCollisionRayMesh(Ray ray, Mesh mesh, Matrix transform)
     if (mesh.vertices != NULL)
     {
         // model->mesh.triangleCount may not be set, vertexCount is more reliable
+        int triangleCount = mesh.vertexCount / 3; //BUG
         
-        int triangleCount = mesh.triangleCount;
-        //int triangleCount = mesh.vertexCount / 3; //BUG @carlos
+        //int triangleCount = mesh.triangleCount;
 
         // Test against all triangles in mesh
         for (int i = 0; i < triangleCount; i++)
