@@ -31,10 +31,13 @@ bool ModelCube::HitsAtLenght(Ray ray, float lenght, RayHitInfo& outInfo)
 		Vector3 hitPos = hitInfo.position;
 		Vector3 origin = ray.position;
 		hitDistance = Vector3Length(Vector3Subtract(hitPos, origin));
-		//BUG @carlos - this if is needed because hitInfo.distance seems to not be working as expected
+		
+		//Debug
+		std::cout << hitInfo.distance << "---" << hitDistance << std::endl;
+		//BUG? - hitInfo.distance seems to not be working as expected
 	}
 	
-	bool result = (hitInfo.hit/* && hitDistance <= lenght*/);
+	bool result = (hitInfo.hit && hitDistance <= lenght);
 	m_Color = (result ? GOLD : m_OriginalColor);
 	return result;
 }

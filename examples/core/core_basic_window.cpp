@@ -41,7 +41,7 @@ int main(void)
     for (int i = 0; i < MAX_COLUMNS; i++)
     {
         float height = (float)GetRandomValue(5, 5);
-        Vector3 position = Vector3{ (float)GetRandomValue(5, 5), height / 2, (float)GetRandomValue(5, 5) };
+        Vector3 position = Vector3{ (float)GetRandomValue(-10, -10), height / 2, (float)GetRandomValue(-10, -10) };
         Color color = Color{ (unsigned char)GetRandomValue(20, 255), (unsigned char)GetRandomValue(10, 55), 30, 255 };
         ModelCube* cube = new ModelCube(position, 25.0f, height, 10.0f, color);
         columns.push_back(cube);
